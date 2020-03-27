@@ -24,15 +24,15 @@ function mainMenu() {
 
         switch (res) {
             case "Add department, roles, employees":
-
+                addDepartment();
                 break;
 
             case " View departments, roles, employees":
-
+                viewDepartments();
                 break;
 
             case "Update employee roles":
-
+                updateEmployees();
                 break;
         }
         // console.log(res);
@@ -42,14 +42,14 @@ function mainMenu() {
 
 
 
-function addDepartment(){
+function addDepartment() {
 
 };
 
-function viewDepartments(){
+function viewDepartments() {
 
 };
 
-function updateEmployees(){
-    
+function updateEmployees() {
+
 }
