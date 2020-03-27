@@ -5,7 +5,7 @@ const path = require("path");
 
 
 function mainMenu() {
-    inquirer.prompt([
+   return inquirer.prompt([
         {
             type: "list",
             message: "What Would you like to do?",
