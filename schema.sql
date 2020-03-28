@@ -28,5 +28,46 @@ create table employee (
     primary key(id)
 );
 
+
+insert into employee (first_name, last_name,)
+values ("Alex", "Smith",);
+
+insert into employee (first_name, last_name,)
+values ("Mike", "Chan");
+
+insert into employee (first_name, last_name)
+values ("Wil", "Fox",);
+
+insert into employee (first_name, last_name)
+values ("Sarah", "Hernandez");
+
+insert into employee (first_name, last_name)
+values ("John", "Doe",);
+
+
+
+insert into roles(title, department,salary)
+values("sales Lead", "Sales", "35000");
+
+insert into roles(title, department,salary)
+values("sales person", "Sales", "330000");
+
+insert into roles(title, department,salary)
+values("Account Manager", "Finance", "40000");
+
+insert into roles(title, department,salary)
+values("Lawyer", "Legal", "77000");
+
+insert into roles(title, department,salary)
+values("Lead Engineer", "Engineering", "80000");
+
+select * from employee;
+select * from roles;
+
+select first_name, last_name
+from employee
+inner join employee on roles.id = employee.role_id;
+
+
  
 
