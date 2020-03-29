@@ -34,6 +34,7 @@ function mainMenu() {
                 "View All Employess By Manager",
                 "Update Employee Role",
                 "Update employee Manager",
+                "Quit"
             ]
         }
     ]).then(res => {
@@ -43,11 +44,11 @@ function mainMenu() {
                 viewEmployees();
                 break;
 
-            case " View Department":
+            case "View All Departments":
                 viewDepartment();
                 break;
 
-            case "View all Roles":
+            case "View All Roles":
                 viewRoles();
                 break;
 
@@ -56,7 +57,7 @@ function mainMenu() {
                 addDepartment();
                 break;
 
-            case "Add role":
+            case "Add Role":
                 addRole();
                 break;
 
@@ -67,6 +68,10 @@ function mainMenu() {
             case "Update Employee":
                 updateEmployees();
                 break;
+
+            case "Quit":
+            default:
+                connection.end();
 
 
         }
@@ -111,10 +116,10 @@ function viewRoles() {
 
 function addDepartment() {
 
-   inquirer.prompt([
+     return inquirer.prompt([
         {
             type: "input",
-            message: " Which department name",
+            message: " What department name would you like to add?",
             name: "department"
 
         }
@@ -132,16 +137,28 @@ function addDepartment() {
 
 function addRole() {
 
-     inquirer.prompt([
+   return inquirer.prompt([
         {
             type: "input",
-            message: " Which role would you like to add",
-            name: "rolesAdded"
+            message: " Which title would you like to add",
+            name: "title"
 
+        },
+        {
+            type: "input",
+            message: "Enter your salary",
+            name: "salary"
+        },
+        {
+            type: "input",
+            message: "Please enter your department ID",
+            name: "department_id"
         }
+
     ]).then(answer => {
-        connection.query("INSERT into roles set ?", { title: answer.rolesAdded }, (err, result) => {
+        connection.query("INSERT into roles set ?", { title: answer.title, salary: answer.salary, department_id: answer.department_id  }, (err, result) => {
             if (err) throw err;
+
             console.log("role is added");
 
             mainMenu();
@@ -153,28 +170,44 @@ function addRole() {
 
 function addEmployee() {
 
-    inquirer.prompt([
-       {
-           type: "input",
-           message: " Enter information about your employee",
-           name: "employeeInfo"
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "please enter employee first name",
+            name: "firstName"
 
-       }
-   ]).then(answer => {
-       connection.query("UPDATE employees  roles set ?", {  }, (err, result) => {
-           if (err) throw err;
-           console.log("Your New employee is added");
+        },
+        {
+            type:"input",
+            message: "Please enter employee last name",
+            name: "lastName"
+        },
+        {
+            type: "input",
+            message: "Enter employee role ID",
+            name: "emplyoeeId"
+        },
+        {
+            type: "input",
+            message: "Please enter manager ID",
+            name: "managerId"
+        }
+    ]).then(answer => {
+        connection.query("INSERT INTO employees set ?", {first_name: answer.firstName, last_name: answer.lastName, role_id: answer.emplyoeeId, manager_id: answer.managerId}, (err, result) => {
+            if (err) throw err;
 
-           mainMenu();
-       })
+            console.log("Your New employee is added");
 
-   });
+            mainMenu();
+        })
+
+    });
 
 };
 
 function updateEmployees() {
 
-    connection.query("UPDATE employee ", (err, reult) => {
+    connection.query("UPDATE employee SET role_id = ? WHERE employees_id = ",[] (err, reult) => {
 
     })
 
