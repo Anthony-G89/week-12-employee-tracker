@@ -199,7 +199,7 @@ function addEmployee() {
             console.log("Your New employee is added");
 
             mainMenu();
-        })
+        });
 
     });
 
@@ -207,9 +207,30 @@ function addEmployee() {
 
 function updateEmployees() {
 
-    connection.query("UPDATE employee SET role_id = ? WHERE employees_id = ",[] (err, reult) => {
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "Which employee would you like to update?",
+            name: "updatingEmployee"
 
-    })
+        },
+        {
+            type:"input",
+            message: "Which role do you want to assign the selected employee?",
+            name: "updatingRole"
+        },
+       
+    ]).then(results  => {
+    connection.query("UPDATE employee SET role_id = ? WHERE roles_id = ?", {firstName:answer.updateEmployees, last_name: answer.lastName}, (err, result) =>{
+        if(err) throw err;
+
+        console.log("Employee is updated");
+        
+        mainMenu();
+    });
+
+    
+});
 
 };
 
@@ -217,7 +238,10 @@ function updateEmployees() {
 
 
 
-
+// connection.query('UPDATE users SET foo = ?, bar = ?, baz = ? WHERE id = ?', ['a', 'b', 'c', userId], function (error, results, fields) {
+//     if (error) throw error;
+//     // ...
+//   });
 
 
 
