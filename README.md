@@ -9,6 +9,10 @@ I want to be able to view and manage the departments, roles, and employees in my
 So that I can organize and plan my business
 ```
 
+## Screenshot of App
+
+![home](images/Employee-Tracker.png);
+
 
 ## To build this Application :
 The package that I downloaded were Mysql, inquirer, and console.table to run this app. 
