@@ -1,6 +1,10 @@
 # week-12-employee-tracker
 
-## Description: You'll be able to keep track of your employees by sorting them out by first & last name, title, department name, employee id, or salary.
+## Description: 
+```
+You'll be able to keep track of your employees by 
+sorting them out by first & last name, title, department name, employee id, or salary.
+```
 
 # User story 
 ```
